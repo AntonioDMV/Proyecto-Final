@@ -85,7 +85,7 @@ const ProductDetail = () => {
                             <b>${products.price}</b>
 
                             </Card.Text>
-                            <Button variant="primary">Go somewhere</Button>
+                            <Button variant="primary">Add to cart <i class="fa-solid fa-cart-shopping"></i></Button>
                         </Card.Body>
                     </Card>
                 </Col>

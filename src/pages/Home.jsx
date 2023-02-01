@@ -74,12 +74,12 @@ const Home = () => {
                     <Row xs={1} md={2} lg={3} className="g-4">
                         {products.map(product => (
                             <Col key={product.id}>
-                                <Card onClick={() => navigate(`/productDetail/${product.id}`)}>
-                                    <Card.Img
+                                <Card className='homeCard' onClick={() => navigate(`/productDetail/${product.id}`)}>
+                                    <Card.Img className='HomeCard-img'
                                         variant="top" src={product.images?.[0].url}
-                                        style={{ height: 200, objectFit: 'contain' }}
+                                        // style={{ objectFit: 'contain' }}
                                     />
-                                    <Card.Body>
+                                    <Card.Body className='HomeCard-description'>
                                         <Card.Title>{product.title}</Card.Title>
                                         <Card.Text>
                                             {product.brand} ${product.price}

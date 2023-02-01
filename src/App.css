@@ -44,6 +44,16 @@
   padding-top: 2rem;
 }
 
+.HomeCard-img{
+  object-fit: contain;
+  height: 160px;
+  padding: 1rem;
+}
+
+.HomeCard-description{
+ height: 150px;
+}
+
 .navbar{
   display: flex;
   
@@ -66,4 +76,10 @@
 .ProductDetailPage{
   padding-top: 5rem;
 }
+
+.loginForm{
+  padding-top: 4rem;
+}
+
+
 
