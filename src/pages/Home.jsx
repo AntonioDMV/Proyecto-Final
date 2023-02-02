@@ -67,7 +67,7 @@ const Home = () => {
                         <Button
                             onClick={() => dispatch(filterProductsTitleThunk(productsSearch))}
                             variant="outline-secondary" id="button-addon2">
-                            Button
+                            <i class="fa-solid fa-magnifying-glass"></i>
                         </Button>
                     </InputGroup>
                     {/* Lista de productos */}
@@ -84,7 +84,9 @@ const Home = () => {
                                         <Card.Text>
                                             {product.brand} ${product.price}
                                         </Card.Text>
+                                        
                                     </Card.Body>
+                                    <Button variant="primary">add to cart</Button>
                                 </Card>
                             </Col>
                         ))}

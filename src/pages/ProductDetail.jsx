@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Card, Carousel, Col, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import { addCartThunk } from '../store/slices/cart.slice';
 import { filterProductsCategoryThuk } from "../store/slices/products.slice";
 
 const ProductDetail = () => {
@@ -25,13 +26,23 @@ const ProductDetail = () => {
 
     }, [id])
 
+    const [quantity, setQuantity] = useState('');
+
+    const addToCart = () => {
+        const cart = { 
+            quantity: quantity,
+            productId: products.id
+
+        }
+        dispatch(addCartThunk(cart));
+    }
     console.log(products);
 
     return (
         <div className='ProductDetailPage'>
             {/* <h1>{products.brand}</h1> */}
             <Row>
-                {/* DESCRIPCION DEL PRODUCTO */}
+                {/* carrusel del producto */}
                 <Col md={7}>
                     <Carousel>
                         <Carousel.Item>
@@ -76,17 +87,21 @@ const ProductDetail = () => {
                 </Col>
                 {/* DESCRIPCION DE PRODUCTOS */}
                 <Col md={5}>
-                    <Card style={{ width: '18rem', border: 'none' }}>
+                    <Card style={{ border: 'none' }}>
                         <Card.Body>
                             <Card.Title><b>{products.title}</b></Card.Title>
                             <Card.Text>
-                            {products.description} <br /> <br />
+                            {products.description} <br />
                             <h6>Price</h6>
                             <b>${products.price}</b>
-
+                            <input type="text" 
+                            value={quantity}
+                            onChange={e => setQuantity(e.target.value)}
+                            />
                             </Card.Text>
-                            <Button variant="primary">Add to cart <i class="fa-solid fa-cart-shopping"></i></Button>
+                            
                         </Card.Body>
+                        <Button onClick={addToCart} variant="primary">Add to cart  <i class="fa-solid fa-cart-shopping"></i></Button>
                     </Card>
                 </Col>
                 <h3 className='my-5'>Discover similar products</h3>
