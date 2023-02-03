@@ -21,7 +21,7 @@ const Purchases = () => {
 
             <Row xs={1} md={2} lg={3} className="g-4">
                 {purchases.map(purchase => (
-                    <Link to={`/productDetail/${purchase.product?.id}`}>
+                    <Link className='purchasesLink' to={`/productDetail/${purchase.product?.id}`}>
                         <Col key={purchase.id}>
                             <Card className='card'>
                                 <Card.Img className='card-img' variant="top" src={purchase.product?.images?.[0].url}  style={{height: 200, objectFit: 'contain'}} />

@@ -54,12 +54,12 @@ const Home = () => {
 
                 {/* Productos */}
                 <Col md={9}>
-                    <h1>Home</h1>
+                    {/* <h1>Home</h1> */}
                     {/* busqueda de productos */}
-                    <InputGroup className="mb-3">
+                    <InputGroup  className="mb-3">
                         <Form.Control
-                            placeholder="Recipient's username"
-                            aria-label="Recipient's username"
+                            placeholder="Search Product"
+                            aria-label="Search Product"
                             aria-describedby="basic-addon2"
                             value={productsSearch}
                             onChange={e => setProductSearch(e.target.value)}
@@ -69,12 +69,12 @@ const Home = () => {
                             variant="outline-secondary" id="button-addon2">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </Button>
-                    </InputGroup>
+                    </InputGroup><br />
                     {/* Lista de productos */}
                     <Row xs={1} md={2} lg={3} className="g-4">
                         {products.map(product => (
                             <Col key={product.id}>
-                                <Card className='card'  onClick={() => navigate(`/productDetail/${product.id}`)}>
+                                <Card className='homeCard' style={{cursor: 'pointer'}}  onClick={() => navigate(`/productDetail/${product.id}`)}>
                                     <Card.Img className='card-img'
                                         variant="top" src={product.images?.[0].url}
                                         // style={{ objectFit: 'contain' }}
@@ -86,7 +86,7 @@ const Home = () => {
                                         </Card.Text>
                                         
                                     </Card.Body>
-                                    <Button variant="primary">add to cart</Button>
+                                    <Button className='cardButton' variant="primary">add to cart</Button>
                                 </Card>
                             </Col>
                         ))}

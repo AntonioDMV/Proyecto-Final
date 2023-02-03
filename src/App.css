@@ -30,18 +30,16 @@
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
-}
+}*/
 
-.card {
-  padding: 2em;
-}
 
-.read-the-docs {
-  color: #888;
-} */
 
 .home{
-  padding-top: 2rem;
+  padding-top: 4rem;
+}
+
+.homeCard{
+  max-width: 250px;
 }
 
 .card-img{
@@ -112,7 +110,6 @@
 
 .purchases{
   padding-top: 2rem;
-  text-decoration: none;
   gap: 20px;
   
 }
@@ -169,6 +166,19 @@
 .deleteButton{
   margin-top: 10px;
 }
+
+.purchasesLink{
+  text-decoration: none;
+  
+}
+
+.suggestedCardDescription{
+  border-top: 1px solid #cecece;
+}
+
+/* .description{
+  border-top: 1px solid #cecece;
+} */
 
 
 

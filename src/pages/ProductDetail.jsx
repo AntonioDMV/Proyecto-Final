@@ -29,7 +29,7 @@ const ProductDetail = () => {
     const [quantity, setQuantity] = useState('');
 
     const addToCart = () => {
-        const cart = { 
+        const cart = {
             quantity: quantity,
             productId: products.id
 
@@ -38,19 +38,30 @@ const ProductDetail = () => {
     }
     console.log(products);
 
+
+    const [buttonCard, setButtonCard] = useState(1)
+
+    const increment = () => {
+        setButtonCard(buttonCard + 1)
+    }
+
+    const decrement = () => {
+        setButtonCard(buttonCard - 1)
+    }
+
     return (
         <div className='ProductDetailPage'>
             {/* <h1>{products.brand}</h1> */}
             <Row>
                 {/* carrusel del producto */}
                 <Col md={7}>
-                    <Carousel>
+                    <Carousel style={{ height: 400 }}>
                         <Carousel.Item>
                             <img
                                 className="d-block w-100"
                                 src={products.images?.[0].url}
                                 alt="First slide"
-                                style={{ height: 200, objectFit: 'contain' }}
+                                style={{ height: 400, objectFit: 'contain' }}
                             />
                             <Carousel.Caption>
                                 <br />
@@ -62,7 +73,7 @@ const ProductDetail = () => {
                                 className="d-block w-100"
                                 src={products.images?.[1].url}
                                 alt="Second slide"
-                                style={{ height: 200, objectFit: 'contain' }}
+                                style={{ height: 400, objectFit: 'contain' }}
                             />
 
                             <Carousel.Caption>
@@ -75,7 +86,7 @@ const ProductDetail = () => {
                                 className="d-block w-100"
                                 src={products.images?.[2].url}
                                 alt="Third slide"
-                                style={{ height: 200, objectFit: 'contain' }}
+                                style={{ height: 400, objectFit: 'contain' }}
                             />
 
                             <Carousel.Caption>
@@ -87,19 +98,30 @@ const ProductDetail = () => {
                 </Col>
                 {/* DESCRIPCION DE PRODUCTOS */}
                 <Col md={5}>
-                    <Card style={{ border: 'none' }}>
+                    <Card className='description' style={{ border: 'none', height: 400 }}>
                         <Card.Body>
                             <Card.Title><b>{products.title}</b></Card.Title>
                             <Card.Text>
-                            {products.description} <br />
-                            <h6>Price</h6>
-                            <b>${products.price}</b>
-                            <input type="text" 
-                            value={quantity}
-                            onChange={e => setQuantity(e.target.value)}
-                            />
+                                {products.description} <br />
+                                <h6>Price</h6>
+                                <div style={{display: 'flex', gap: '30px'}}>
+                                    <div>
+                                        <b>${products.price}</b>
+                                    </div>
+                                    <div>
+                                        <button style={{ border: 'none', width: '30px', height: '30px', borderRadius: '3px' }} onClick={decrement}>-</button>
+                                        <input style={{ maxWidth: '40px', textAling: 'center' }}
+                                            type=""
+                                            value={quantity}
+                                            onChange={e => setQuantity(e.target.value)}
+                                        />
+                                    <button style={{ border: 'none', width: '30px', height: '30px', borderRadius: '3px' }} onClick={increment}>+</button>
+                                    </div>                                    
+                                    
+                                </div>
+
                             </Card.Text>
-                            
+
                         </Card.Body>
                         <Button onClick={addToCart} variant="primary">Add to cart  <i class="fa-solid fa-cart-shopping"></i></Button>
                     </Card>
@@ -110,12 +132,12 @@ const ProductDetail = () => {
                     <Row xs={1} md={2} lg={3} className="g-4">
                         {productsSuggested.map(productSuggested => (
                             <Col key={productSuggested.id} className='my-5'>
-                                <Card onClick={() => navigate(`/productDetail/${productSuggested.id}`)}>
+                                <Card style={{ cursor: 'pointer' }} onClick={() => navigate(`/productDetail/${productSuggested.id}`)}>
                                     <Card.Img className='suggestedimg'
                                         variant="top" src={productSuggested.images?.[0].url}
                                         style={{ height: 200, objectFit: 'contain' }}
                                     />
-                                    <Card.Body>
+                                    <Card.Body className='suggestedCardDescription'>
                                         <Card.Title>{productSuggested.title}</Card.Title>
                                         <Card.Text>
                                             <b>${productSuggested.price}</b>

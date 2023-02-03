@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Button, Offcanvas } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCartThunk, purchaseCartThunk } from '../store/slices/cart.slice';
@@ -15,10 +15,43 @@ const PurchasesSidebar = ({ show, handleClose }) => {
 
     console.log(cart);
 
+    let total = 0
+    cart.forEach(cart => {
+        console.log(cart);
+        const productTotal = Number(cart.product.price) * cart.quantity;
+        total += productTotal
+    });
+
+
+    const [quantity, setQuantity] = useState('');
+
+    const addToCart = () => {
+        const cart = {
+            quantity: quantity,
+            productId: products.id
+
+        }
+        dispatch(addCartThunk(cart));
+    }
+
+
+    const [buttonCard, setButtonCard] = useState(1)
+
+    const increment = () => {
+        setButtonCard(buttonCard + 1)
+    }
+
+    const decrement = () => {
+        setButtonCard(buttonCard - 1)
+    }
+
+    
+
+
     return (
         <Offcanvas placement={'end'} show={show} onHide={handleClose}>
             <Offcanvas.Header closeButton>
-                <Offcanvas.Title>Cart</Offcanvas.Title>
+                <Offcanvas.Title>My Cart</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
 
@@ -27,14 +60,30 @@ const PurchasesSidebar = ({ show, handleClose }) => {
                         <li key={cart.productId}>
                             <div className='cart-products-list'>
                                 <img className='cart-img' src={cart.product.images?.[2].url} alt="" />
-                                <div className='cart-description'>
+                                {/* <div className='cart-description'>
                                     {cart.product.title}
                                     <input type="text" />
+                                </div> */}
+                                <div>
+                                    <div>
+                                        <b>{cart.product.title}</b>
+                                    </div>
+                                    <div>
+                                        <button style={{ border: 'none', width: '30px', height: '30px', borderRadius: '3px' }} onClick={decrement}>-</button>
+                                        <input style={{ maxWidth: '40px', textAling: 'center' }}
+                                            type="text"
+                                            value={quantity}
+                                            onChange={e => setQuantity(e.target.value)}
+                                            
+                                        />
+                                    <button style={{ border: 'none', width: '30px', height: '30px', borderRadius: '3px' }} onClick={increment}>+</button>
+                                    </div>                                    
+                                    
                                 </div>
                                 <div className='deleteButton'>
                                     <button className='cart-button' ><i class="fa-solid fa-trash-can"></i></button>
                                 </div> <br />
-                                <p>total: ${cart.product.price}</p> 
+                                <p> <b>total: ${cart.product.price}</b> </p> 
                             </div>
                           
                         </li>
@@ -42,7 +91,9 @@ const PurchasesSidebar = ({ show, handleClose }) => {
                 </ul>
                 <div className='total'>
                     <hr />
-                    <h5>total</h5><br />
+                    <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '1.5rem'}}>
+                        <h5>total</h5> {total}
+                    </div>
                     <Button onClick={() => dispatch(purchaseCartThunk())}>checkout</Button>
                 </div>
             </Offcanvas.Body>
