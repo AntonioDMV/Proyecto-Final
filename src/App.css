@@ -44,20 +44,20 @@
   padding-top: 2rem;
 }
 
-.HomeCard-img{
+.card-img{
   object-fit: contain;
   height: 160px;
   padding: 1rem;
 }
 
-.HomeCard-description{
+.card-description{
  height: 170px;
  border-top: 1px solid #cecece;
 }
 
-.navbar{
+.navBar{
   display: flex;
-  
+  justify-content: end;
 }
 
 .carousel-control-next-icon{
@@ -78,9 +78,7 @@
   padding-top: 5rem;
 }
 
-.loginForm{
-  padding-top: 4rem;
-}
+
 
 .cart{
   display: flex 1 1;
@@ -110,9 +108,54 @@
   background: none;
 }
 
-.cart-description{
+.purchases{
+  padding-top: 2rem;
+  text-decoration: none;
+  gap: 20px;
+  
+}
+
+.card-title{
+  text-decoration: none;
+}
+
+.login-form{
+  background-color: #f1f1f1;
+  position: absolute;
+  left: 430px;
+  padding: 2rem;
+  margin-top: 3rem;
+  border: 1px solid rgb(214, 214, 214);
+  box-shadow: 2px 2px 8px 2px rgb(214, 214, 214);
+  border-radius: 10px;
+  max-width: 500px;
+  margin-bottom: 5rem;
+}
+
+
+.login-test{
+  display: flex;
+  flex-direction: column;
+  background-color: #137ea7;
+  padding: 15px;
+  border-radius: 10px;
+  color: aliceblue;
 
 }
+
+.login-test i{
+  margin-top: 5px;
+  margin-right: 7px;
+}
+
+.login{
+  margin-bottom: 10px;
+}
+
+.login h5{
+  text-align: center;
+}
+
 
 
 

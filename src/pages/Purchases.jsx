@@ -16,22 +16,17 @@ const Purchases = () => {
     }, [])
 
     return (
-        <div>
-            <h1>Purchases</h1>
+        <div className='purchases' style={{textDecoration: 'none'}}>
+            <h1> My Purchases</h1>
 
             <Row xs={1} md={2} lg={3} className="g-4">
                 {purchases.map(purchase => (
                     <Link to={`/productDetail/${purchase.product?.id}`}>
                         <Col key={purchase.id}>
-                            <Card>
-                                <Card.Img variant="top" src={purchase.product?.images?.[0].url} className='img-fluid' />
+                            <Card className='card'>
+                                <Card.Img className='card-img' variant="top" src={purchase.product?.images?.[0].url}  style={{height: 200, objectFit: 'contain'}} />
                                 <Card.Body>
-                                    <Card.Title>{purchase.product?.title}</Card.Title>
-                                    {/* <Card.Text>
-                                        This is a longer card with supporting text below as a natural
-                                        lead-in to additional content. This content is a little bit
-                                        longer.
-                                    </Card.Text> */}
+                                    <Card.Title style={{textDecoration: 'none'}}>{purchase.product?.title}</Card.Title>
                                 </Card.Body>
                             </Card>
                         </Col>
