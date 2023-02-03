@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Nav, Navbar, NavDropdown, Offcanvas } from 'react-bootstrap';
+import { Container, Nav, Navbar} from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import PurchasesSidebar from './purchasesSidebar';
 const AppNavbar = () => {
