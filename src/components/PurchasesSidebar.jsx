@@ -40,7 +40,9 @@ const PurchasesSidebar = ({ show, handleClose }) => {
                         </li>
                     ))}
                 </ul>
-                <div>
+                <div className='total'>
+                    <hr />
+                    <h5>total</h5><br />
                     <Button onClick={() => dispatch(purchaseCartThunk())}>checkout</Button>
                 </div>
             </Offcanvas.Body>
