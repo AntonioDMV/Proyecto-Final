@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Nav, Navbar} from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import PurchasesSidebar from './purchasesSidebar';
+import PurchasesSidebar from './PurchasesSidebar';
 const AppNavbar = () => {
 
   const navigate = useNavigate();

@@ -24,7 +24,7 @@ const PurchasesSidebar = ({ show, handleClose }) => {
 
                 <ul className='cart'>
                     {cart.map(cart => (
-                        <div>
+                        <li key={cart.productId}>
                             <div className='cart-products-list'>
                                 <img className='cart-img' src={cart.product.images?.[2].url} alt="" />
                                 <div className='cart-description'>
@@ -37,7 +37,7 @@ const PurchasesSidebar = ({ show, handleClose }) => {
                                 <p>total: ${cart.product.price}</p> 
                             </div>
                           
-                        </div>
+                        </li>
                     ))}
                 </ul>
                 <div>
