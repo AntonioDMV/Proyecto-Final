@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Button, Card, Offcanvas } from 'react-bootstrap';
+import { Button, Offcanvas } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCartThunk, purchaseCartThunk } from '../store/slices/cart.slice';
 
