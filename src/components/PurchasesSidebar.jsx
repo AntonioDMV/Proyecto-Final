@@ -31,7 +31,7 @@ const PurchasesSidebar = ({ show, handleClose }) => {
                                     {cart.product.title}
                                     <input type="text" />
                                 </div>
-                                <div>
+                                <div className='deleteButton'>
                                     <button className='cart-button' ><i class="fa-solid fa-trash-can"></i></button>
                                 </div> <br />
                                 <p>total: ${cart.product.price}</p> 
